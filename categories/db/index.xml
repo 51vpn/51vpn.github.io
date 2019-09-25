@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>db on 资源社区</title>
+    <link>https://waygit.github.io/categories/db/</link>
+    <description>Recent content in db on 资源社区</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 20 Sep 2019 09:25:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://waygit.github.io/categories/db/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Db</title>
+      <link>https://waygit.github.io/db/db/</link>
+      <pubDate>Fri, 20 Sep 2019 09:25:30 +0800</pubDate>
+      
+      <guid>https://waygit.github.io/db/db/</guid>
+      <description>mysql、mongodb 常见数据库使用测试</description>
+    </item>
+    
+    <item>
+      <title>Db</title>
+      <link>https://waygit.github.io/db/%E9%80%89%E6%8B%A9mariadb%E8%BF%98%E6%98%AFmysql/</link>
+      <pubDate>Fri, 20 Sep 2019 09:25:30 +0800</pubDate>
+      
+      <guid>https://waygit.github.io/db/%E9%80%89%E6%8B%A9mariadb%E8%BF%98%E6%98%AFmysql/</guid>
+      <description>作者 | EverSQL 译者 | 无明 这篇文章的目的主要是比较 MySQL 和 MariaDB 之间的主要相似点和不同点。我们将从性能、安全性和主要功能方面对这两个数据库展开对比，并列出在选择数据库时需要考虑的重要事项。谁在使用 MySQL 和 Mari</description>
+    </item>
+    
+  </channel>
+</rss>

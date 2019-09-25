@@ -1,0 +1,104 @@
+body{
+    background-color: bisque;
+}
+
+
+/* 页面宽度布局 */
+.container {
+    max-width: 100%;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1475px) {
+	.container--outer {
+		width: 100%;
+	}
+}
+.container--outer {
+    margin-top: 0px; margin-bottom: 0px;
+    background-color: aqua;
+     
+}
+
+.wrapper {
+    padding: 0% 8%;
+    padding-top: 80px;
+    background: #fff;
+
+}
+
+.primary {
+	-webkit-flex: 1 0 65.83%;
+	flex: 1 0 78%;
+	-webkit-order: 1;
+	order: 1;
+	min-width: 0;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+	-webkit-flex: 1 0 31.66%;
+	flex: 1 0 22%;
+	-webkit-order: 2;
+	order: 2;
+	min-width: 0;
+	margin: 0 0 0 2.5%;
+}
+
+h4.widget__title {
+	/* border-bottom: gainsboro solid 2px; */
+	/* border-bottom:grey solid 2px; */
+	border-bottom: #2a2a2a solid 2px;
+	/* border: black solid 1px; */
+	/* padding-bottom: 3px; */
+	/* line-height: 38px; */
+	margin-bottom: 10px;
+}
+
+div.widget__content ul {
+	/* border: burlywood solid 1px; */
+	/* padding-top: 0px; */
+	margin-top: 0px;
+}
+
+/* 菜单 */
+
+.logo {
+	padding: 10px 0px;
+	padding-right: 80px;
+	margin-left: 8%;
+}
+
+.logo__title {
+	font-size: 28px;
+	font-size: 1.6rem;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+}
+
+.logo__tagline {
+	display: inline-block;
+	font-size: 24px;
+	font-size: .875rem;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	border-top: 0px solid #ebebeb;
+}
+
+.menu__link {
+	display: block;
+    line-height: 1;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+@media screen and (min-width: 960px) {
+	.menu__item {
+		padding: 10px 25px;
+		font-size: 15px;
+		border-left: 1px solid rgba(255, 255, 255, .1);
+	}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on 资源社区</title>
+    <link>https://waygit.github.io/tags/docker/</link>
+    <description>Recent content in docker on 资源社区</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 20 Sep 2019 04:36:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://waygit.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gitbook使用说明</title>
+      <link>https://waygit.github.io/linux/gitbook_%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Fri, 20 Sep 2019 04:36:46 +0800</pubDate>
+      
+      <guid>https://waygit.github.io/linux/gitbook_%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</guid>
+      <description>gitbook cnpm install gitbook-cli -g mkdir demo &amp;amp;&amp;amp; cd demo gitbook init gitbook serve &amp;ndash;port 4000 # &amp;ndash;log=debug 查看详细启动过程 gitbook build # 构建生成静态网站 gitbook install ./ # 安装插件 可选: 插件 &amp;ldquo;prism&amp;rdquo;, &amp;ldquo;chapter-fold&amp;rdquo;, &amp;ldquo;code&amp;rdquo;, &amp;ldquo;copy-code-button&amp;rdquo;, &amp;ldquo;click-reveal&amp;rdquo; # 点击显示隐藏内容 &amp;ldquo;splitter&amp;rdquo;, # 左侧菜单栏宽度可变 &amp;ldquo;back-to-top-button&amp;rdquo;, # 返回顶部 &amp;ldquo;tbfed-pagefooter&amp;rdquo;, # 文件底部版权 &amp;ldquo;page-toc-button&amp;rdquo;, # 右侧文档浮</description>
+    </item>
+    
+  </channel>
+</rss>

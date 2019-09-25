@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>k8s 自定义了下及布局测试01 - 资源社区</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+    
+    
+
+	<div class="container container--outer">
+		
+        <header class="header">
+	<div class="container">
+		
+		
+<nav class="menu" style="position: fixed; width: 100%;">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">菜单</span>
+	</button>
+	<ul class="menu__list">
+
+		
+		<span class="logo">
+			<a class="logo__link" href="/" title="资源社区" rel="home">
+				<span class="logo__title">资源社区</span>
+				<span class="logo__tagline">交易社区</span>
+			</a>
+		</span>
+
+		
+			<li
+				class="menu__item">
+				<a class="menu__link" href="/">首页</a>
+			</li>
+			<li
+				class="menu__item">
+				<a class="menu__link" href="/linux/">linux</a>
+			</li>
+			<li
+				class="menu__item">
+				<a class="menu__link" href="/k8s/">K8S</a>
+			</li>
+			<li
+				class="menu__item">
+				<a class="menu__link" href="/tags/">标签</a>
+			</li>
+			<li
+				class="menu__item">
+				<a class="menu__link" href="/categories/">分类</a>
+			</li>
+			<li
+				class="menu__item">
+				<a class="menu__link" href="/about/">关于我</a>
+			</li>
+
+		
+		
+		
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+
+
+		
+		<div class="wrapper flex">
+                
+			
+			<div class="primary">
+				
+				
+				<div class="content main__content clearfix">
+					
+
+<!-- ![awk命令](/img/awk.jpg) -->
+
+<h1 id="awk-命令概述">awk 命令概述</h1>
+
+<p>一个强大的文本分析工具命令,把文件逐行的读入然后执行相应的命令,以空格为默认分隔符将每行切片,切开的部分再进行各种分析处理,通常用来格式化文本文件中的信息.主要涉及的概念有记录(行)、域(列)、域分隔符</p>
+
+<ol>
+<li><p>BEGIN{}模块<br />
+在awk处理任何输入文件之前执行</p></li>
+
+<li><p>END{}模块<br />
+在整个输入文件处理完成后被执行</p></li>
+</ol>
+
+<h2 id="命令格式">命令格式</h2>
+
+<p>awk &lsquo;{pattern + action}&rsquo; file1,file2&hellip;</p>
+
+<p>pattern 表示 AWK 在数据中查找的内容<br />
+action 是在找到匹配内容时所执行的一系列命令</p>
+
+<h2 id="内置变量">内置变量</h2>
+
+<p>$n        第几列<br />
+$0        代表所有列<br />
+$NF       表示最后一列<br />
+NF        当前记录中的字段数<br />
+NR        当前记录数<br />
+FNR       同NR，但相对于当前文件<br />
+FILENAME  当前文件名<br />
+FS        输入域分隔符(默认是任何空格)<br />
+OFS       输出域分隔符(默认值是一个空格)<br />
+ORS       输出记录分隔符(默认值是一个换行符)</p>
+
+<h2 id="命令示例">命令示例</h2>
+
+<ol>
+<li><p>打印行号,每行列数,所有列<br />
+cat a.c |awk -F&rsquo; &lsquo; &lsquo;{print FNR,NF,$0}&rsquo;</p></li>
+
+<li><p>打印以tom或kevin开头的行<br />
+awk &lsquo;/^(tom|kevin)/ {print $0}&rsquo; a.c</p></li>
+
+<li><p>打印第一列是tom的行<br />
+awk &lsquo;{if($1==&ldquo;tom&rdquo;){print $0}}&rsquo; a.c</p></li>
+
+<li><p>三元条件判断<br />
+awk &lsquo;{print ($1 &gt; 5 ? &ldquo;ok &ldquo;$1: &ldquo;error&rdquo;$1)}&rsquo; a.c</p></li>
+
+<li><p>查看指定某些目录内文件总字节数<br />
+ls -l $(find /etc/ -maxdepth 3) |awk &lsquo;BEGIN {size=0;} {if($5!=4096){size=size+$5;}} END{print &ldquo;[end]size is &ldquo;, size}&rsquo;</p></li>
+
+<li><p>查看本机与那些Ip建立了tcp链接<br />
+netstat -n | grep -i estab* | awk -F &lsquo;[ :]+&rsquo; &lsquo;{print $4&rdquo; &ldquo;$6}&rsquo;<br />
+备注: &lsquo;[ :]+&rsquo; 表示以空格和冒号作为分隔符</p></li>
+
+<li><p>查看那些ip在访问本机的80端口<br />
+netstat -n | awk -F &lsquo;[ :]+&rsquo; &lsquo;/^tcp/ {if($6!=&ldquo;127.0.0.1&rdquo; &amp;&amp; $5==80) print $4&rdquo;:&ldquo;$5&rdquo; &ldquo;$6&rdquo;:&ldquo;$7}&rsquo;</p></li>
+
+<li><p>统计访问本机80端口的ip情况<br />
+netstat -n | awk -F &lsquo;[ :]+&rsquo; &lsquo;/^tcp/ {if($6!=&ldquo;127.0.0.1&rdquo; &amp;&amp; $5==80) print $6}&rsquo; | sort | uniq -c | sort -rn -t &lsquo; &rsquo; -k 1</p></li>
+
+<li><p>将第二列数据横排输出<br />
+awk &lsquo;{printf(&ldquo;%s &ldquo;,$2)}&rsquo; a.c</p></li>
+
+<li><p>执行shell的date命令，并通过管道输出给getline，然后getline从管道中读取并将输入赋值给d，split函数把变量d转化成数组mon，然后打印数组mon的第二个元素<br />
+awk &lsquo;BEGIN{&ldquo;date&rdquo; | getline d; split(d,mon); print mon[2]}&rsquo;</p></li>
+
+<li><p>命令ls的输出传递给geline作为输入，循环使getline从ls的输出中读取一行，并把它打印到屏幕<br />
+awk &lsquo;BEGIN{while( &ldquo;ls&rdquo; | getline) print}&rsquo;</p></li>
+
+<li><p>以空格分割字符串info,并存入数组t中<br />
+awk &lsquo;BEGIN{info=&ldquo;it is a test&rdquo;;lens=split(info,t,&rdquo; &ldquo;);print length(t),lens;}&rsquo;<br />
+awk &lsquo;BEGIN{info=&ldquo;it is a test&rdquo;;split(info,t,&rdquo; &ldquo;);for(k in t){print k,t[k];}}&rsquo;</p></li>
+
+<li><p>取进程id<br />
+netstat -ntlp | awk &lsquo;{print $7}&rsquo; | grep redis-server | sed -r &rsquo;s/[^0-9]{5}.<em>//&rsquo;<br />
+netstat -ntlp | awk &lsquo;{print $7}&rsquo; | grep redis-server | grep -o &lsquo;^.</em>&lt;[0-9]+&gt;&lsquo;</p></li>
+
+<li><p>ESTABLISHED状态连接数统计<br />
+netstat -ant | grep &lsquo;ESTABLISHED&rsquo; | awk -F &ldquo; &rdquo; &lsquo;{print $5}&rsquo; | awk -F &ldquo;:&rdquo; &lsquo;{print $1}&rsquo; | sort -n | uniq -c| sort -t &ldquo; &rdquo; -k 1 -nr</p></li>
+</ol>
+
+<p>参考:<br />
+<a href="http://www.ttlsa.com/docs/awk/">http://www.ttlsa.com/docs/awk/</a><br />
+<a href="https://www.cnblogs.com/irockcode/category/989288.html">https://www.cnblogs.com/irockcode/category/989288.html</a></p>
+
+				</div>
+				
+			
+			</div>
+			
+			
+		</div>
+		
+		
+		<footer class="footer" style="margin: 0px auto;">
+
+	
+
+	
+	<div style="margin-left: 25%;">
+		<span class="credits copyright text-muted">
+			&copy;2017-2018
+			
+			
+			Gavin
+			
+			
+			&nbsp;&bull;&nbsp;
+			September 21,2019
+			updated
+			
+			&nbsp;&bull;&nbsp;
+			<a href="https://waygit.github.io/">Home</a>
+			
+		</span>
+
+		<span class="credits theme-by text-muted">
+			<span id="busuanzi_container_site_pv">
+				本站访问量：<span id="busuanzi_value_site_pv"></span>次
+			</span>
+			&nbsp;
+			<span id="busuanzi_container_site_uv">
+				您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+			</span>
+		</span>
+	</div>
+
+	
+	
+	<script async src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			
+			var int = setInterval(fixCount, 100);
+			
+			var busuanziSiteOffset =  1 ;
+        	function fixCount() {
+				if ($("#busuanzi_container_site_pv").css("display") != "none") {
+					
+					clearInterval(int);
+					
+					$("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + busuanziSiteOffset);
+				}
+			}
+    	});
+	</script>
+	
+</footer>
+
+    </div>
+    
+<script async defer src="/js/menu.js"></script>
+
+
+</body>
+</html>
